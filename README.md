@@ -3,6 +3,7 @@
 
 ## CoppeliaSim:
 * mid level API for coppeliaSim
+* this folder also contains a Freenove4WD coppelia model 
 
 ***
 
