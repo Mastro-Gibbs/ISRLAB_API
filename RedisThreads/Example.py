@@ -69,6 +69,8 @@ class Redis_On_Thread:
 
 
 if __name__ == "__main__":
+    obj = None
+
     try:
         obj: Redis_On_Thread = Redis_On_Thread()
         obj.begin()
@@ -76,7 +78,8 @@ if __name__ == "__main__":
     except Redis_On_Thread_Exc as rexc:
         print(rexc.args)
     except KeyboardInterrupt:
-        pass
+        if obj is not None:
+            obj.stop()
 
 
 
