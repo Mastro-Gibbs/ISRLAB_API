@@ -32,6 +32,7 @@ class Redis_On_Thread:
         except RedisConnError or OSError or ConnectionRefusedError:
             raise Redis_On_Thread_Exc(f'Unable to connect to redis server at: {self.__HOST}:{self.__PORT}')
 
+    def begin(self) -> None:
         # sleep_time disable CPU burning :)
         # detach threads
         self.__redis_message_handler: PubSubWorkerThread = self.__pubsub.run_in_thread(sleep_time=0.01)
